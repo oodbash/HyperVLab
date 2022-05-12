@@ -1,12 +1,12 @@
 #Declare variables
-$ipaddress = "192.168.1.11" 
+$ipaddress = "192.168.1.12" 
 $ipprefix = "20" 
 $ipgw = "192.168.0.1" 
 $ipdns = "192.168.1.11"
 $ipdns2 = "8.8.8.8" 
 $ipif = (Get-NetAdapter).ifIndex 
 $featureLogPath = "c:\poshlog\featurelog.txt" 
-$newname = "phs-dc-01"
+$newname = "phs-adc-01"
 $addsTools = "RSAT-AD-Tools" 
 
 #Set static IP address
@@ -21,7 +21,7 @@ Rename-Computer -NewName $newname -force
 #Install features 
 New-Item $featureLogPath -ItemType file -Force 
 Add-WindowsFeature $addsTools 
-Get-WindowsFeature | Where installed >>$featureLogPath 
+Get-WindowsFeature | Where installed >> $featureLogPath 
 
 #Restart the computer 
 Restart-Computer
