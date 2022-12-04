@@ -21,7 +21,8 @@
   New-NetNat –Name FEDnetwork –InternalIPInterfaceAddressPrefix 192.168.3.0/24
   
 ## Create a new NAT forwarding.
-## This example creates a mapping between port 82 of the Virtual Machine host to port 80 of a Virtual Machine with an IP address of 172.21.21.3.
+
+This example creates a mapping between port 82 of the Virtual Machine host to port 80 of a Virtual Machine with an IP address of 172.21.21.3.
 
   Add-NetNatStaticMapping -NatName "PHSnetwork" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 172.16.0.3 -InternalPort 3389 -ExternalPort 82
 
